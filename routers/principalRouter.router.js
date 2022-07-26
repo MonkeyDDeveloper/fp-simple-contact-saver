@@ -1,5 +1,4 @@
 const path = require('path');
-const morgan = require('morgan');
 const express = require('express');
 const {renderIndex, saveNewContact, getAllContacts, renderUpdate, deleteAContact, updateContact} = require(path.join(__dirname, '..', 'controllers', 'principalRouter.controller.js'));
 const {ENV} = require(path.join(__dirname, '..', 'config', 'config.js'));
@@ -8,6 +7,7 @@ const views_js = path.join(__dirname, '..', 'views_js');
 const css = path.join(__dirname, '..', 'css');
 const principalRouter = express.Router();
 if(ENV == 'development') {
+    const morgan = require('morgan');
     principalRouter.use(morgan('dev'));
 }
 
