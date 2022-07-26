@@ -1,0 +1,19 @@
+doctype html
+html(lang="es")
+    include headUpdate.pug
+    - let {id_contact, contact_name, contact_email, contact_number} = contact_data
+    body
+        h1 Actualiza tu contacto!
+        .card
+            form
+                .input-group
+                    label Nombre
+                    input(type="text" name="contact_name" value=contact_name placeholder="Escriba su nombre" required)
+                .input-group
+                    label Email
+                    input(type="text" name="contact_email" value=contact_email placeholder="Escriba su correo electrónico" required)
+                .input-group
+                    label Número de telf
+                    input(type="text" name="contact_number" value=contact_number placeholder="Escriba su número telefónico" required)
+                button(type="submit" id=id_contact) Guardar
+        script(src="/public/update.pug.js") 

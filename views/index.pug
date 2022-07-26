@@ -1,0 +1,41 @@
+doctype html
+html(lang="es")
+    include headIndex.pug
+    body
+        .container
+            .head
+                h1 Guardador de contactos simple
+                p Practica sencilla de NodeJS y MySQL
+            .form
+                form
+                    .input-group
+                        label Nombre
+                        input(autocomplete="off" type="text" name="name" placeholder="Escriba su nombre" required)
+                    .input-group
+                        label Correo electrónico
+                        input(autocomplete="off" type="email" name="email" placeholder="Escriba su correo electrónico" required)
+                    .input-group
+                        label Número de teléfono
+                        input(autocomplete="off" type="text" name="phone" placeholder="Escriba su número de teléfono" required)
+                    button(type="submit") Guardar contacto
+            .table
+                .table-title
+                    h3 Contactos agregados
+                .table-contacts
+                    table
+                        thead
+                            tr
+                                th(scope="col") Nombre
+                                th(scope="col") Número de teléfono
+                                th(scope="col") Correro electrónico
+                                th(scope="col") Acciones
+                        tbody
+        template
+            tr
+                td.name
+                td.number
+                td.email
+                td.actions
+                    button.update Editar
+                    button.delete Eliminar
+        script(src="public/index.pug.js") 
