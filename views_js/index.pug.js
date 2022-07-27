@@ -28,10 +28,7 @@ function addListeners () {
 }
 function getContacts () {
     fetch('contacts')
-        .then( response => {
-            if(response.status != 200) throw new Error('Error interno del servidor');
-            else return response.json();
-        })
+        .then( response => response.json() )
         .then( res => {
             if(res.success) {
                 let fragment = document.createDocumentFragment();
@@ -64,10 +61,7 @@ form.onsubmit = event => {
         },
         body: JSON.stringify(data)
     })
-        .then( response => {
-            if(response.status != 200) throw new Error('Error interno del servidor')
-            else return response.json()
-        })
+        .then( response => response.json() )
         .then( res => {
             if(res.success) {
                 window.location.reload()
