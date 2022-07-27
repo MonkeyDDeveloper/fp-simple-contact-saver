@@ -11,7 +11,10 @@ const contactsConnection = mysql.createConnection({
 function connectDatabase () {
     return new Promise( (res, rej) => {
         contactsConnection.connect( err => {
-            if(err) res(false)
+            if(err) {
+                console.log(err.message)
+                res(false)
+            }
             else {
                 console.log('Base de datos conectada correctamente')
                 res(true)
