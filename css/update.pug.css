@@ -104,7 +104,24 @@ button:hover {
     font-weight: bold;
     cursor: pointer;
 }
-
+p {
+    text-align: center;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: 1.12rem;
+    height: 2rem;
+    border-radius: .2rem;
+}
+.success {
+    border: thin solid green;
+    background-color: #198754;
+    color: #fff;
+}
+.fail {
+    border: thin solid red;
+    background-color: #dc3545;
+    color: #fff;
+}
 @media screen and (max-width: 880px) {
     .card {
         width: 100%;
@@ -116,5 +133,9 @@ button:hover {
     }
     .input-group {
         width: 95%;
+    }
+    p {
+        font-size: .85rem;
+        text-align: left;
     }
 }

@@ -156,6 +156,24 @@ form button:hover {
     font-weight: bold;
     background-color: rgba(184, 12, 9);
 }
+p {
+    text-align: center;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: 1.12rem;
+    height: 2rem;
+    border-radius: .2rem;
+}
+.success {
+    border: thin solid green;
+    background-color: #198754;
+    color: #fff;
+}
+.fail {
+    border: thin solid red;
+    background-color: #dc3545;
+    color: #fff;
+}
 @media screen and (max-width: 736px) {
     .container {
         width: 100%;
@@ -169,5 +187,9 @@ form button:hover {
 @media screen and (max-width: 540px) {
     .container .table {
         overflow-x: scroll;
+    }
+    p {
+        font-size: .85rem;
+        text-align: left;
     }
 }
