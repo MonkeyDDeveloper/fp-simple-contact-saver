@@ -1,4 +1,8 @@
-const form = document.querySelector('form')
+const form = document.querySelector('form');
+const messageArea = document.querySelector('.message_area');
+function showMessage (type, message) {
+    messageArea.innerHTML = `<p class="${type}">${message}</p>`
+}
 form.onsubmit = event => {
     event.preventDefault()
     let newData = Object.fromEntries(new FormData(form).entries())
@@ -15,8 +19,9 @@ form.onsubmit = event => {
         if(res.success){
             window.location.replace('/')
         }
-        else {
-            console.log(res.err_message)
-        }
+        else throw new Error(res.err_message)
+    })
+    .catch( err => {
+        showMessage('fail', `Hubo un error procesando la petición: ${err.message}`)
     })
 }

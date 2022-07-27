@@ -1,6 +1,10 @@
 const form = document.querySelector('form');
 const tableBody = document.querySelector('tbody');
+const messageArea = document.querySelector('.message_area');
 const tableFragment = document.querySelector('template').content;
+function showMessage (type, message) {
+    messageArea.innerHTML = `<p class="${type}">${message}</p>`
+}
 function addListeners () {
     let updateButtons = document.querySelectorAll('.update');
     let deleteButtons = document.querySelectorAll('.delete');
@@ -41,14 +45,13 @@ function getContacts () {
                     fragment.appendChild(clone);
                 })
                 tableBody.appendChild(fragment);
+                showMessage('success', `Contactos guardados actualmente`)
                 addListeners()
             }
-            else {
-                console.log(res.err_message);
-            }
+            else throw new Error(res.err_message)
         })
         .catch( err => {
-            console.log(err.message);
+            showMessage('fail', `Hubo un error procesando la petición: ${err.message}`)
         })
 }
 form.onsubmit = event => {
@@ -69,12 +72,10 @@ form.onsubmit = event => {
             if(res.success) {
                 window.location.reload()
             }
-            else {
-                console.log(res.err_message)
-            }
+            else throw new Error(res.err_message)
         })
         .catch( err => {
-            console.log(err.message)
+            showMessage('fail', `Hubo un error procesando la petición: ${err.message}`)
         })
 }
 getContacts()
